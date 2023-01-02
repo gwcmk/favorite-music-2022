@@ -5,8 +5,12 @@ let brian = params.brian;
 if (brian == null || brian != "yes") {
     document.body.style = "display: block;";
 }
+else
+{
+    alert("Access denied!");
+}
 
-var observer = new MutationObserver(function(mutations) {
+const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutationRecord) {
         if (mutationRecord.target == document.body) {
             const compStyles = window.getComputedStyle(mutationRecord.target);
@@ -18,5 +22,5 @@ var observer = new MutationObserver(function(mutations) {
     });    
 });
 
-var target = document.body;
+const target = document.body;
 observer.observe(target, { attributes : true, attributeFilter : ['style'] });
